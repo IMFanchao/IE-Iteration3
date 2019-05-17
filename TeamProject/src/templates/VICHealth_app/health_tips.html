@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+{% extends "VICHealth_app/base.html"%}
+ {%block body_block%}
+ <div class="breadcrumb-area pt-240 pb-125" style="background-image:url(../../static/assets/img/bg/1.jpeg);" data-overlay="5">
+    <div class="container">
+        <div class="breadcrumb-text text-center z-index">
+            <h2>Activity Recommendations</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div style="text-align:center;">
+      <br>
+      <br>
+      <h5>On this page, we offer many recommended activities for kids. Click the <strong>learn more button</strong> to see their benefits and safety tips.
+        In the detail window that pops up, click the <strong>find activities button</strong> to view the activity in each suburb.</h5>
+      <br>
+      <br>
+    </div>
+    <div class="row" style="height:100%;">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../static/images/Swimming.png" alt="Card image cap">
+          <div class="card-body">
+            <b><h3 class="card-title">Swimming</h3></b>
+            <p class="card-text">Recommended age:</p>
+            <p class="card-text">age 4 or above</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#swimmingModal">Learn more</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../static/images/Soccer.png" alt="Card image cap">
+          <div class="card-body">
+            <b><h3 class="card-title">Soccer</h3></b>
+            <p class="card-text">Recommended age:</p>
+            <p class="card-text">age 5 or above</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#soccerModal">Learn more</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../static/images/Football.png" alt="Card image cap">
+          <div class="card-body">
+            <b><h3 class="card-title">Football</h3></b>
+            <p class="card-text">Recommended age:</p>
+            <p class="card-text">age 5 or above</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#footballModal">Learn more</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../static/images/Walking.png" alt="Card image cap">
+          <div class="card-body">
+            <b><h3 class="card-title">Walking</h3></b>
+            <p class="card-text">Recommended age:</p>
+            <p class="card-text">All age</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#walkingModal">Learn more</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../static/images/Netball.png" alt="Card image cap">
+          <div class="card-body">
+            <b><h3 class="card-title">Netball</h3></b>
+            <p class="card-text">Recommended age:</p>
+            <p class="card-text">age 6 or above</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#netballModal">Learn more</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../static/images/Gym.png" alt="Card image cap">
+          <div class="card-body">
+            <b><h3 class="card-title">Gymnastics</h3></b>
+            <p class="card-text">Recommended age:</p>
+            <p class="card-text">age 6 or above</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gymModal">Learn more</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../static/images/Martial.png" alt="Card image cap">
+          <div class="card-body">
+            <b><h3 class="card-title">Martial Arts</h3></b>
+            <p class="card-text">Recommended age:</p>
+            <p class="card-text">age 6 or above</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#martialModal">Learn more</button>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../static/images/Dance.png" alt="Card image cap">
+        <div class="card-body">
+          <b><h3 class="card-title">Dancing</h3></b>
+          <p class="card-text">Recommended age:</p>
+          <p class="card-text">age 3 or above</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#danceModal">Learn more</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../static/images/Athletics.png" alt="Card image cap">
+        <div class="card-body">
+          <b><h3 class="card-title">Little Athletics</h3></b>
+          <p class="card-text">Recommended age:</p>
+          <p class="card-text">Age 5 to 15 years </p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#athleticsModal">Learn more</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../static/images/Parkrun.png" alt="Card image cap">
+        <div class="card-body">
+          <b><h3 class="card-title">Park run</h3></b>
+          <p class="card-text">Recommended age:</p>
+          <p class="card-text">Age 4 and above</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#parkrunModal">Learn more</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../static/images/Basketball.png" alt="Card image cap">
+        <div class="card-body">
+          <b><h3 class="card-title">Basketball</h3></b>
+          <p class="card-text">Recommended age:</p>
+          <p class="card-text">Age 5 and above</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basketballModal">Learn more</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../static/images/Cricket.png" alt="Card image cap">
+        <div class="card-body">
+          <b><h3 class="card-title">Cricket</h3></b>
+          <p class="card-text">Recommended age:</p>
+          <p class="card-text">Age 5 and above</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cricketModal">Learn more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="modal fade" id="swimmingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Swimming</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p>The American Academy of Pediatrics (AAP) recommend swimming lessons for children <strong>age 4 or above</strong>.(VeryWell, 2019)</p>
+          <p>However, AAP no longer opposed to aquatic programs and swimming lessons for toddlers and pre-schoolers between the age of 1 to 4 years old.</p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  By teaching your child to swim, he will not only become a strong swimmer but will also gain valuable experience in the water. It will protect the child when he accidentally falls into the water.</p>
+          <p>-  Swimming is an excellent cardiovascular exercise that promotes heart and lung health, enhances strength and flexibility, enhances endurance, and even improves balance and posture.</p>
+          <p>-  The Center for Disease Control and Prevention noted that swimming is a way to prevent childhood obesity and that childhood obesity is associated with juvenile diabetes.</p>
+          <p>-  Encouraging your child to swim can also improve his mental and emotional well-being. The natural buoyancy of water is more relaxed than other types of exercise.</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	A supervisor is within arm’s reach or able to touch the swimmer all the time.</p>
+          <p>-	Kids should learn how to use protective devices.</p>
+          <p>-	Whenever a kid is missing, check the pool first.</p>
+          <p>-	When you have a social gathering around the pool, have the adults take turns being the dedicated watcher, so you ensure there are eyes on the kids at all times.</p>
+          <p>-	Learn CPR and ensure all family member can do it.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="soccerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Soccer</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p><strong>5 years old</strong> is good to play at school and <strong>age 7</strong> is enough for training.(Life, 2019)</p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Soccer gives your child a great cardiovascular workout. They also help to increase flexibility and strength.</p>
+          <p>-  Teamwork is one of the hardest things to learn if your child does not participate in team sports. As a team sport, football players must unite to be successful. Teamwork is the skill you need to succeed in school, work and home.</p>
+          <p>-  Soccer helps strengthen the core muscles and hand-eye coordination. It makes children move more actively and become healthier.</p>
+          <p>-  Playing soccer can help children enhance their self-confidence. Achieving some achievement, such as a goal, will improve your child's confience.</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Check the field to make sure there are no holes or other obstacles, including debris and broken glass. Store extra balls and equipment well off to the sides of the field before a practice or game starts</p>
+          <p>-	Check the goals at each end of the field to make sure they're safe. Goals should be attached to the ground, and goal posts should be well padded. If the field is wet, use synthetic, nonabsorbent balls. Leather balls can become waterlogged and very heavy, increasing the risk of injury.</p>
+          <p>-	Remove any piercings or jewelry before playing.</p>
+          <p>-	Always warm up and stretch before playing.</p>
+          <p>-	Learn and use proper techniques, especially when heading the ball.</p>
+          <p>-	Stop training if they get hurt or feel pain. Players should get checked by an athletic trainer, coach, doctor, or nurse before going back on the field.</p>
+          <p>-	Stay hydrated, particularly on hot, sunny days, by drinking plenty of fluids before, during, and after games and practices.</p>
+          <p>(TeensHealth, 2019c)</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="footballModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Football</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Usually known as AFL or Aussie Rules, it's a sport in which two teams of 18 players compete to kick a ball through their opponent's goal.(Auskick, 2019)</p>
+          <h6>Recommended age:</h6>
+          <p>NAB AFL Auskick accept new members from <strong>age 5-12</strong>. (Auskick, 2019)</p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Winning a game or kicking a ball through opponent's goal will enhance the child's self-confidence.</p>
+          <p>-  AFL can improve physical fitness such as sprint, endurance and core muscles.</p>
+          <p>-  Increase hand-foot-eye coordination because you can play with your hands or feet.</p>
+          <p>-  Because 18 people play in an AFL game, this is an excellent opportunity to make friends and enhance your child's social skills. Kids can develop teamwork skills by communicating with teammates and developing strategies.</p>
+          <br>
+          <h6>Safety tips: </h6>
+          <p>Common injuries while playing AFL</p>
+          <p>Common causes of football injuries are being tackled, collisions with another player, hit by the ball and falls. Injuries to the thigh, knee, lower leg and ankle are the most common non-hospital-treated injuries. Hospital-admitted injuries (which make up 30% of all Australian Football hospital
+            presentations) are usually fractures, sprains or strains affecting the wrists, hands, shoulders, head or face, lower leg and knee.</p>
+          <br>
+          <p>Be prepared to play AFL</p>
+          <p>Remember to:</p>
+          <p>-	Train before the season so your body is ready to compete. Pre-season training can improve strength, flexibility, stamina, agility and balance.</p>
+          <p>-	Learn, practise and use correct skills and techniques before playing.</p>
+          <p>-	Do a complete warm-up, including stretching, slow jogging and running activities, with and without a football.</p>
+          <p>-	Eat a balanced, nutritional diet.</p>
+          <p>-	Drink water before, during and after a game or training session.</p>
+          <p>-	Avoid drinking alcohol 48 hours before a game and straight after a game.</p>
+          <br>
+          <p>Provide a safe environment for AFL</p>
+          <p>Suggestions include:</p>
+          <p>-	Check the ground to remove or cover hazardous objects, such as broken glass or sprinkler heads.</p>
+          <p>-	Make sure fences are a minimum of three metres from the boundary line.</p>
+          <p>-	Ensure goalposts are padded with high-density foam, at least two metres high and 35 millimetres thick. Padding should be in good condition and replaced when worn or damaged.</p>
+          <p>-	Make sure qualified first aid personnel, first aid kits, icepacks and a stretcher are available at all times.</p>
+          <p>-	Check that telephone access, to contact emergency services, is available.</p>
+          <p>(Health, 2019)</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="walkingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Walking</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p><strong>All</strong></p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Walking can make children feel calmer and happier, and it can increase their attention and make it easier for them to concentrate in school.</p>
+          <p>-  Walking can improve your heart and breathing when you practice for a long time. If you choose to go faster, it can help your child control weight and strengthen the muscles of their legs, feet, and arms.</p>
+          <p>-  By walking with your child, you get a moment of relaxation. It will be a good decompression activity. During this particular time with your child, you will spend time listening to them and improving your relationship.</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Find a safe place to cross where you can see easily, ideally at a crossing or away from parked cars and when it's clear, walk straight across</p>
+          <p>-	Talk about the traffic you see on your way and the best places to cross, and ask questions about the speed and size of different vehicles</p>
+          <p>-	In quiet areas, gradually allow your children to practice making decisions about where and when to a crossroad.</p>
+          <br>
+          <p>Be street smart! (TeensHealth, 2019a)</p>
+          <p>-	Who Are Strangers?</p>
+          <p>-	Make Your Whereabouts Known</p>
+          <p>-	Stick With a Friend</p>
+          <p>-	Pick Out Safe Spots</p>
+          <p>-	Avoid Places That Aren't Safe</p>
+          <p>-	Let Grown-Ups (and Only Grown-Ups) Help Strangers</p>
+          <p>-	Stay Away From Strangers' Cars</p>
+          <p>-	Make a Lot of Noise If You're Scared</p>
+          <p>-	Trust Your Instincts</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netballModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Netball</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p><strong>Age 6 and above.</strong></p>
+          <br>
+          <h6>Benefits: </h6>
+          <p>-	Netball is the ideal way to meet new people. And it is an excellent way for boys and girls to interact and socialize in a controlled environment.</p>
+          <p>-	The netball game requires players to run, sprint and quickly change direction on the court. Therefore, it is an excellent cardiovascular exercise and will improve overall fitness. Their flexibility and strength will also increase.</p>
+          <p>-	Improve hand-eye coordination depth perception and reaction time.</p>
+
+          <p>-	Have a coach or program director who is qualified and is at every practice. A qualified coach will be up to date on the latest safety recommendations.</p>
+          <p>-	Have a coach spotting for all new or difficult stunts.</p>
+          <p>-	Let the coach know if they're uncomfortable with a gymnastic move. If the coach isn't supportive, tell a parent or an administrator.</p>
+          <p>-	Never try a stunt at a game or competition that they haven't practiced many times.</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Players should have qualified instructors to plan, plan and train according to individual needs.</p>
+          <p>-	Overtraining and excessive competition can lead to severe consequences such as injuries, illness, adverse psychological effects, and exhaustion.</p>
+          <p>-	For kids from age  5 to 7, Recommended session duration is up to 30–45 minutes per week</p>
+          <p>-	For kids from age 8 to 10, Recommended session duration is Up to 40–60 minutes 1 or 2 times per week</p>
+          <p>-	For kids from age 11 to 13, Recommended session duration is Up to 60–90 minutes 1 or 2 times per week</p>
+          <p>-	For kids from age 14+ (mid-adolescence), Recommended session duration is Up to 90–120 minutes and have a minimum of 2 rest days per week</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="gymModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Gymnastics</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p>You can find gymnastics classes for children as young as <strong>2 years of age</strong>, but many coaches say that it's better to wait until your child is <strong>5 or 6</strong> before enrolling in a serious gymnastics program.</p>
+          <p>For younger children, introductory classes should focus on developing body awareness and a love for the sport. Parent-child classes that emphasize climbing, crawling, and jumping are a gentle way for
+            children <strong>2 to 3 years</strong> of age to develop their physical coordination and self-confidence.</p>
+          <p>(ThroughCo, 2019)</p>
+          <br>
+          <h6>Benefits: </h6>
+          <p>-	Learning and completing a gymnastics routine requires both physical and intellectual use. The left and right brains must work together so that your child's physical awareness and spatial awareness will increase.</p>
+          <p>-	Gymnastics is a self-controlled sport, and mastering self-control will ultimately increase self-confidence.</p>
+          <p>-	Gymnastics aid in disease prevention by promoting and maintaining a healthy and robust body.</p>
+          <p>-	Gymnastics is a weight-bearing exercise that exercises strong, healthy bones. As we age, we have experienced years of decline in bone density. By building strong, healthy bones at an early date, we can reduce the symptoms of osteoporosis in later life.</p>
+          <p>-	The most essential thing in gymnastics is flexibility. As you increase your flexibility, you reduce the chance of injury.</p>
+          <h6>Safety tips: </h6>
+          <p>-	Get a sports physical before starting any new sport.</p>
+          <p>-	Always warm up and stretch before doing gymnastics.</p>
+          <p>-	Only practice on padded floors, never on a hard surface. Mats should be placed under the equipment and properly secured at all times.</p>
+          <p>-	Have a coach or program director who is qualified and is at every practice. A qualified coach will be up to date on the latest safety recommendations.</p>
+          <p>-	Have a coach spotting for all new or difficult stunts.</p>
+          <p>-	Let the coach know if they're uncomfortable with a gymnastic move. If the coach isn't supportive, tell a parent or an administrator.</p>
+          <p>-	Never try a stunt at a game or competition that they haven't practiced many times.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="martialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Martial Arts</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Martial arts are self-defense practices, like karate, judo and tae kwon do.</p>
+          <h6>Recommended age:</h6>
+          <p><strong>Age 6 and above</strong></p>
+          <br>
+          <h6>Benefits: </h6>
+          <p>-	Martial arts will help children learn self-discipline, restraint, and patience.</p>
+          <p>-	A martial artist is known for being fit, flexible and healthy, and your kid will be the same. Jumping, push-ups, and stretching warm-ups are common, and the movement of martial arts itself often challenges your muscles and cardiovascular system.</p>
+          <p>-	A kid generally becomes more confident when s/he is involved in Martial arts. The ability to resist the attacker is a powerful feeling. Most martial arts use self-defense as the cornerstone of the entire project.</p>
+          <p>-	Martial arts starts with respect. Punching, kicking, throwing and locking are the other respects that emerge from the moment you walk into Dojo.</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Any clothes, safety gears, and equipment should be fit your kids entirely. When the clothes are loose, or the equipment is too small, it increases the risk of injury to students and their instructors.</p>
+          <p>-	Stretching or proper warm-up is essential to prevent muscle damage in the classroom. And once the day's activities are over, cooling the muscles is also necessary.</p>
+          <p>-	When you or your child suspects that he is injured, please tell the coach where it hurts. Delaying medical care will only make the injury more serious, even if it only feels pain, please let the coach know so that they can help the child recover as soon as possible.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="danceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Dance</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p>Children from <strong>age 3-5</strong> can start to take part in dancing.</p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Dancing is a high-intensity physical activity. Regular dance exercises can improve your child's flexibility, range of motion, strength, and stamina.</p>
+          <p>-  Repetitive movements in dance can improve muscle tone, correct wrong postures, increase balance and coordination, and improve overall cardiovascular health.</p>
+          <p>-  Mastering dance skills will make your child more confident and foster a positive attitude. And dancing is also an excellent way to relieve stress and make your child's life happier.</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Choose a dance style that is appropriate to your level of fitness.</p>
+          <p>-	Wear professionally fitted shoes appropriate to your style of dance.</p>
+          <p>-	Warm up thoroughly before you start dancing and include stretches.</p>
+          <p>-	Check with your dance instructor that you are using the correct posture or technique.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="athleticsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Little Athletics</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Little Athletics is a unique Australian modified sport for children aged 5 to 15 years, although some state associations may offer this range outside of the age group.</p>
+          <h6>Recommended age:</h6>
+          <p><strong>Age 5 to 15 years.</strong></p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Little Athletics can help develop multiple skills such as strength, balance, and coordination.</p>
+          <p>-  Little Athletics help kids have a healthy mind and body.</p>
+          <p>-  Preparing for the competition will give the children a goal and something to look forward to. They will practice hard and need to persevere to succeed.</p>
+          <p>-  Have the opportunity to represent their community Little Athletics events and will enhance their self-confidence</p>
+          <p>-  Participating in a fun and healthy competition will teach your children teamwork, athleticism, fair play and respect for each player's values.</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Make sure all equipment and specifications are in strict accordance with the LAA recommendations.</p>
+          <p>-	Before exercise, there must be enough warm-up to prevent injuries.</p>
+          <p>-	Athletes should have qualified coaches who plan projects, training and competition schedules according to individual needs.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="parkrunModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Park Run</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Park run Australia (https://www.parkrun.com.au/) organize a series of free weekly running events, with a total distance of each is approximately 5 km. There are junior Parkrun events designed typically for kids aged from 4 to 14.</p>
+          <h6>Recommended age:</h6>
+          <p><strong>Age 4 and above.</strong></p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Help your kids stay healthy and active.</p>
+          <p>-  Regular running can help your kids to lose weight and keep healthy blood pressure.</p>
+          <p>-  Research shows that participants have an improvement in their self-esteem and overall health condition.</p>
+          <p>-  Make more friends during Parkrun!</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Kids aged under 11 should be guided with parents while running.</p>
+          <p>-	Keep your kids hydrated, prepare water, and supplement.</p>
+          <p>-	Check the course before taking part in this activity.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="basketballModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Park Run</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p><strong>Age 5 and above.</strong></p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Help your kids to cultivate a great teamwork spirit from their young age.</p>
+          <p>-  Jumping while shooting basket may help your children get stronger body development and grow taller. </p>
+          <p>-  Learning rules and play in a team is a good process of building self-discipline.</p>
+          <p>-  Make more friends while playing basketball!</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	Get pairs of elbow and knee pads for your kid, and remember carefully choose materials for kids’ sensitive skin.</p>
+          <p>-	Kids aged from 5 to 6 are not suitable for playing in a team yet. Meanwhile, please make sure to choose a smaller ball to play with them.</p>
+          <p>-	Kids above age 7 can be ready to participate in a team game and some simple training and learn rules.</p>
+          <p>-	Please take at least 10 minutes warming up exercise before higher intensity game, including stretching.</p>
+          <p>-	Break down the training session. Your kids will need to take rest during the activity.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cricketModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Cricket</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Recommended age:</h6>
+          <p><strong>Age 5 and above.</strong></p>
+          <br>
+          <h6>Benefits:</h6>
+          <p>-  Playing cricket can help your kids to learn teamwork spirit.</p>
+          <p>-  It can be beneficial for developing a stronger hand-eye cooperation skill for your kids.</p>
+          <p>-  Build up your kids’ endurance and stamina when young.</p>
+          <p>-  Make more friends while playing cricket!</p>
+          <br>
+          <h6>Safety tips:</h6>
+          <p>-	You may think about carefully choose protective equipment and the right gear for kids’ sensitive skin.</p>
+          <p>-	Please take at least 10 minutes warming up exercise before higher intensity game, including stretching.</p>
+          <p>-	Keep your kids hydrated, drink plenty of water before activities.</p>
+          <p>-	Talk with your kids and let them share a fun experience with you.</p>
+          <p>-	Before playing with your kids, remove hazards around.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{%url 'VICHealth_app:sub_info'%}" class="btn btn-primary">Find activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

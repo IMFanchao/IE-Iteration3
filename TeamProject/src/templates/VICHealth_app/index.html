@@ -1,0 +1,234 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Activity4Kid</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="../../static/assets/img/2072.png">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <!-- all css here -->
+  <link rel="stylesheet" href="{% static 'mycss/tabs.css'%}">
+  <link rel="stylesheet" href="{% static 'mycss/tips.css'%}">
+  <link rel="stylesheet" href="{% static 'mycss/myStyle.css'%}">
+  <link rel="stylesheet" href="../../static/assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="../../static/assets/css/animate.css">
+  <link rel="stylesheet" href="../../static/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../../static/assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../static/assets/css/et-line-icon.css">
+  <link rel="stylesheet" href="../../static/assets/css/bicon.min.css">
+  <link rel="stylesheet" href="../../static/assets/css/slick.css">
+  <link rel="stylesheet" href="../../static/assets/css/meanmenu.min.css">
+  <link rel="stylesheet" href="../../static/assets/css/bundle.css">
+  <link rel="stylesheet" href="../../static/assets/css/style.css">
+  <link rel="stylesheet" href="../../static/assets/css/responsive.css">
+  <!-- This is my css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Kanit|Lilita+One" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'mycss/CAL.css'%}">
+  <link rel="stylesheet" href="../../static/mycss/tips.css">
+  <link rel="stylesheet" href="../../static/mycss/sub_info.css">
+  <link rel="stylesheet" href="../../static/mycss/base.css">
+</head>
+<body>
+  <header class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: white;font-size: 20px;">
+    <a class="navbar-brand" style="margin-left:15%" href="{%url 'VICHealth_app:index'%}">Activity4Children</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'VICHealth_app:index'%}" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'VICHealth_app:check_activity_level'%}">How active is your child?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'VICHealth_app:sub_info'%}">Find An Activity</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'VICHealth_app:health_tips'%}">Healthy Activities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'VICHealth_app:diet'%}">Healthy Diet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'VICHealth_app:data'%}">Health data</a>
+        </li>
+      </div>
+  </header>
+        <!-- header end -->
+        <!-- slider-area start -->
+        <div class="slider-area">
+            <div class="slider-active owl-carousel">
+                <div class="single-slider pb-340 pt-240 bg-img" style="background-image:url(../../static/assets/img/slider/1.jpg);" data-overlay="5">
+                    <div class="container">
+                        <div class="slider-text text-center z-index">
+                            <h2 class="animated">Help your <span>Children</span></h2>
+                            <h1 class="animated">Growing with <span>Happiness</span> & <span>Health</span></h1>
+                            <p class="animated">What we try to do is give you some health advice and help your child stay active and healthy</p>
+                            <a class="button theme-bg animated" href="{%url 'VICHealth_app:check_activity_level'%}"> Check Your Child's Activity Level</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-slider pb-340 pt-240 bg-img" style="background-image:url(../../static/assets/img/slider/2.jpg);" data-overlay="5">
+                    <div class="container">
+                        <div class="slider-text text-center z-index">
+                            <h2 class="animated">Check <span>Activity Level</span></h2>
+                            <h1 class="animated">Assess your kids <span>Activity Level</span></h1>
+                            <p class="animated">Exercise can effectively avoid obesity and overweight, while at the same time making the body and mental healthier</p>
+                            <a class="button theme-bg animated" href="{%url 'VICHealth_app:check_activity_level'%}"> Check Your Child's Activity Level</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-slider pb-340 pt-240 bg-img" style="background-image:url(../../static/assets/img/slider/3.jpg);" data-overlay="5">
+                    <div class="container">
+                        <div class="slider-text text-center z-index">
+                            <h2 class="animated">Develop a good activity<span>Habits</span></h2>
+                            <h1 class="animated">Develop the <span>habit of exercising </span>from childhood</h1>
+                            <p class="animated">Develop good exercise habits from childhood and benefit your child all his life.</p>
+                            <a class="button theme-bg animated" href="{%url 'VICHealth_app:check_activity_level'%}"> Check Your Child's Activity Level</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slider end -->
+        <!-- services start -->
+        <div class="services-area">
+            <div class="container">
+                <div class="all-single-service white-bg pt-120 pb-90">
+                    <h2 style="text-align: center;">Facts in Victoria</h2>
+                    <br>
+                  <div class="row" style="margin-bottom:50px">
+
+                    <div class="section-title text-center mb-75">
+
+                    </div>
+                    <div class="col-md-6 col-sm-6" style="text-align:center">
+                      <svg version="1.1" id="People" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                       width="200px" height="130px" viewBox="0 0 200 130" enable-background="new 0 0 173.438 115.792"
+                        xml:space="preserve">
+                        <g>
+                          <g id="frontPerson">
+                             <path fill-rule="evenodd" clip-rule="evenodd" fill="#02AFA9" d="M86.288,115.458c-11.662,0-23.327-0.123-34.986,0.076
+                              c-3.467,0.06-4.586-1.102-4.741-4.477c-0.742-16.149,5.476-28.887,19.194-37.253c13.722-8.369,28.176-8.349,41.877,0.055
+                              c13.697,8.401,19.852,21.164,19.102,37.306c-0.163,3.515-1.509,4.412-4.847,4.362C110.023,115.351,98.154,115.458,86.288,115.458z
+                              "/>
+                              <path fill-rule="evenodd" clip-rule="evenodd" fill="#04B0AA" d="M66.652,37.617c0.422-10.962,9.547-19.507,20.541-19.232
+                               c10.945,0.273,19.716,9.439,19.448,20.324c-0.277,11.222-9.683,20.044-20.845,19.551C74.841,57.775,66.234,48.495,66.652,37.617z"
+                               />
+                            </g>
+                            <g id="backPersonL">
+                              <path fill-rule="evenodd" clip-rule="evenodd" fill="#04B0AA" d="M25.224,72.528c-6.96-0.002-13.924-0.126-20.881,0.054
+                               C1.102,72.665,0.188,71.358,0,68.284c-0.825-13.558,8.574-26.546,22.159-30.275c13.534-3.714,28.185,2.618,34.344,14.891
+                               c0.698,1.393,2.133,2.872,0.844,4.51c-3.312,4.208-5.983,8.776-8.178,13.645c-0.9,1.995-2.75,1.437-4.29,1.449
+                               C38.327,72.562,31.776,72.529,25.224,72.528z"/>
+                              <path fill-rule="evenodd" clip-rule="evenodd" fill="#04B0AA" d="M29.918,29.726c-8.196-0.065-14.781-6.659-14.81-14.833
+                               C15.079,6.589,22.13-0.223,30.521,0.005c8.152,0.222,14.653,7.045,14.461,15.177C44.787,23.399,38.168,29.789,29.918,29.726z"/>
+                              </g>
+                              <g id="backPersonR">
+                                <path fill-rule="evenodd" clip-rule="evenodd" fill="red" d="M148,72.528c-2.048,0.001-4.095,0.001-6.143,0.001
+                                 c-16.805,0-16.732-0.045-25.305-14.137c-1.203-1.979-0.851-3.279-0.042-5.023c5.672-12.213,20.577-19.002,34.096-15.473
+                                 c13.958,3.643,23.573,16.706,22.696,30.462c-0.201,3.158-1.266,4.296-4.421,4.22C161.923,72.413,154.959,72.526,148,72.528z"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" fill="red" d="M142.952,0.004c8.15-0.133,14.968,6.333,15.235,14.451
+                                  c0.267,8.099-6.226,14.996-14.37,15.264c-8.505,0.28-15.418-6.279-15.506-14.711C128.226,6.864,134.79,0.137,142.952,0.004z"/>
+                               </g>
+                            </g>
+                        </svg>
+                  </div>
+
+                  <div class="col-md-6 col-sm-6" style="font-family: 'Open Sans', sans-serif">
+
+                    <h3>One out of every three children in Victoria is obese or overweight</h3>
+                    <br>
+                    <a href="{%url 'VICHealth_app:data'%}" style="margin-left:70% ;text-decoration:underline"> Learn more</a>
+                  </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-title text-center mb-75">
+                                <h2>Our Goal</h2>
+                                <div class="icon-img">
+                                    <img src="../../static/assets/img/icon-img/1.png" alt="">
+                                </div>
+                                <p>Help your child stay away from obesity and overweight by providing information and assessing your child's activity levels.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 text-center mb-30">
+                            <div class="single-service">
+                                <i class="icon-speedometer"></i>
+                                <h3>Check Activity Level</h3>
+                                <p>Help assess whether your child’s exercise is adequate</p>
+                                <br>
+                                <a class="button theme-bg animated" href="{%url 'VICHealth_app:check_activity_level'%}">Go</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center mb-30">
+                            <div class="single-service">
+                                <i class="icon-map"></i>
+                                <h3>Activities Near You</h3>
+                                <p>Find a place in this area that is suitable for your child having exercise</p>
+                                <br>
+                                <a class="button theme-bg animated" href="{%url 'VICHealth_app:sub_info'%}">Go</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 text-center mb-30">
+                            <div class="single-service">
+                                <i class="icon-bike"></i>
+                                <h3>Suggested Activities</h3>
+                                <p>Provide information on different sports so that you can choose the right exercise for your child</p>
+                                <a class="button theme-bg animated" href="{%url 'VICHealth_app:health_tips'%}">Go</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- services end -->
+
+        <!-- footer area start -->
+        <footer class="footer-area pt-120 black-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-bottom text-center">
+                        <p>Copyright &copy; 2019.TA14 NewClear</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+        <!-- footer area end -->
+
+
+        <!-- all js here -->
+        <script src="../../static/assets/js/vendor/jquery-1.12.0.min.js"></script>
+
+        <script src="../../static/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="../../static/assets/js/isotope.pkgd.min.js"></script>
+        <script src="../../static/assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="../../static/assets/js/jquery.counterup.min.js"></script>
+        <script src="../../static/assets/js/waypoints.min.js"></script>
+        <script src="../../static/assets/js/ajax-mail.js"></script>
+        <script src="../../static/assets/js/owl.carousel.min.js"></script>
+        <script src="../../static/assets/js/plugins.js"></script>
+        <script src="../../static/assets/js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="{% static 'myjs/myjs.js'%}"></script>
+        <script src="http://rendro.github.io/easy-pie-chart/javascripts/jquery.easy-pie-chart.js"></script>
+        <script src="../../static/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPLzx2XWLc_6CBb5m9XXEz5pv_wTprUsA&callback=initMap" type="text/javascript"></script>
+    </body>
+</html>

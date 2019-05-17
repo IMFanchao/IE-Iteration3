@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lilita+One" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'mycss/myStyle.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'myjs/myjs.js'%}"></script>
+  </head>
+  <body>
+    <header class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="{%url 'VICHealth_app:index'%}">Activity4Children</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{%url 'VICHealth_app:index'%}">Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'VICHealth_app:check_activity_level'%}">Check Activity Level</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'VICHealth_app:sub_info'%}">Suburb Information</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'VICHealth_app:health_tips'%}">Activity Intensity</a>
+          </li>
+        </div>
+    </header>
+    <br>
+    <br>
+
+    <div class="Home_div" style="position:relative">
+        <img src="{%static "images/Home.jpg"%}" class="HomepageBackGround" alt="">
+        <div class="OnHomePagePic">
+          <div class="HomeSwag">
+            <h1 class = "">Activity & Health</h1>
+          </div>
+          <div class="WebIntro">
+            <p style="font-size:30px;margin-left:auto">
+              We will try to give you some advice and help to help your child be healthier
+            </p>
+          </div>
+          <div class="wrap">
+            <a href="{%url 'VICHealth_app:check_activity_level'%}" class="myButton" style="color:white;margin-right:21%"><b>Check Activity Level</b></a>
+            <a href="{%url 'VICHealth_app:sub_info'%}" class="myButton" style="color:white"><b>Check Suburb Info</b></a>
+          </div>
+          <div id="tipsDiv" style="color:white; width:350px;margin-left:100px;font-family: 'Indie Flower', cursive;font-size:25px">
+            <p><b>Health tips</b>: <span id="Home_page_health_tips"></span> </p>
+            <button type="button" id="refreash" class="refreash"><u><b>refresh</b></u></button>
+          </div>
+        </div>
+
+    </div>
+  </body>
+</html>

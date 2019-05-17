@@ -1,0 +1,166 @@
+.tbtn{
+  text-align: center;
+
+}
+
+.backTop{
+  text-align: right;
+}
+
+#_conten_ h3{
+  color: blue;
+}
+
+
+.circular {
+  /* display items as block elements, inline positioning */
+  display: inline-block;
+  /* set the height of the image */
+  height: 250px;
+  /* set the width of the image */
+  width: 250px;
+  font-size: 2em;
+  color: white;
+  line-height: 230px;
+
+
+  /* use a radius to make the image into a circular shape */
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+
+  /* Add shadow to the box */
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+/* simple hover effect */
+div.circular {
+  opacity: .8;
+  /* add fade transition effect to opacity change */
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out; /* Safari */
+}
+
+div.circular:hover {
+  opacity: 1;
+}
+
+div.circular.active{
+  opacity: 1;
+}
+
+
+.btn-sugar:hover{
+  background: url(../../static/assets/img/tab/sugar-c.jpeg) no-repeat;
+    margin: 10px;
+}
+.btn-sugar.active{
+  background: url(../../static/assets/img/tab/sugar-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-salt:hover{
+  background: url(../../static/assets/img/tab/salt-c.jpeg) no-repeat;
+    margin: 10px;
+}
+.btn-salt.active{
+  background: url(../../static/assets/img/tab/salt-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-butter:hover{
+  background: url(../../static/assets/img/tab/butter-c.jpeg) no-repeat;
+    margin: 10px;
+}
+.btn-butter.active{
+  background: url(../../static/assets/img/tab/butter-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-protein:hover{
+  background: url(../../static/assets/img/tab/fried-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-protein.active{
+  background: url(../../static/assets/img/tab/fried-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-carbide:hover{
+  background: url(../../static/assets/img/tab/bread-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-carbide.active{
+  background: url(../../static/assets/img/tab/bread-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-vc:hover{
+  background: url(../../static/assets/img/tab/vc-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-vc.active{
+  background: url(../../static/assets/img/tab/vc-c.jpeg) no-repeat;
+    margin: 10px;
+}
+
+
+.btn-sugar {
+  background: url(../../static/assets/img/tab/sugar.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-salt {
+  background: url(../../static/assets/img/tab/salt.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-butter {
+  background: url(../../static/assets/img/tab/butter.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-protein{
+  background: url(../../static/assets/img/tab/fried.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.btn-carbide{
+  background: url(../../static/assets/img/tab/bread.jpeg) no-repeat;
+    margin: 10px;
+}
+.btn-vc{
+  background: url(../../static/assets/img/tab/vc.jpeg) no-repeat;
+    margin: 10px;
+}
+
+.tablinks{
+  height:120px;
+  border: solid 1px #ccc;
+  background-color: #f57936;
+  background-size: cover;
+}
+
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  text-align: center;
+}
+
+/* Style the tab content */
+.tabcontent {
+
+  padding: 0px 12px;
+  /* border:solid #ccc; */
+}
+
+.IPT{
+  color: red;
+}

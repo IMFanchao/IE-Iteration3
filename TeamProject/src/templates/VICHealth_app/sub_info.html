@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+{% extends "VICHealth_app/base.html"%}
+ {%block body_block%}
+    <div class="breadcrumb-area pt-240 pb-125" style="background-image:url(../../static/images/info_background.jpg);" data-overlay="5">
+    <div class="container">
+        <div class="breadcrumb-text text-center z-index">
+            <h2>Find an activity</h2>
+        </div>
+    </div>
+  </div>
+    <div class="container">
+      <img src="../../static/images/info_guide.png" style="width:100%" alt="">
+      <!--<button type="button" class="scroll_down" id="scroll_down"></button>-->
+    </div>
+
+  <div class="container" id="tableMap" style="height: 100%;">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+        <!--Input form -->
+        <div style="width:90%;margin:2% auto">
+          <section class="search-sec">
+          <div class="container">
+              <form action="#" method="post" novalidate="novalidate">
+              {% csrf_token %}
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="row">
+                              <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                                  <input type="text" class="form-control search-slt" placeholder="Postcode/suburb name" id="suburb">
+                              </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                                  <select class="form-control search-slt" id="activity">
+                                      <option>All activity</option>
+                                      <option>Swimming</option>
+                                      <option>Walking/hiking</option>
+                                      <option>Park run</option>
+                                      <option>Cycling</option>
+                                      <option>Martial arts</option>
+                                      <option>Football</option>
+                                      <option>Soccer</option>
+                                      <option>Volleyball</option>
+                                      <option>Tennis</option>
+                                      <option>Netball</option>
+                                      <option>Basketball</option>
+                                      <option>Cricket</option>
+                                      <option>Fitness</option>
+                                      <option>Gymnastics</option>
+                                      <option>Athletics</option>
+                                      <option>Dancing</option>
+                                  </select>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                                  <button type="button" class="btn btn-success wrn-btn" onclick="updateMap()">Search</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </section>
+          </div>
+          <!--Google map feature -->
+          <div id="googleMap" style="width:100%;height:600px;margin-bottom:5% auto"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          <div id="tableDiv" style="height:100%">
+            <table border=1 class="fixed_header">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Type</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+  var map;
+  //Store marker display on google map
+  var gMarkers = new Array();
+  //Store url for each marker on google map
+  var markerUrls = new Array();
+  var urlIndex = 0;
+
+  function initMap() {
+    var mapProp = {
+      //Center is Victoria
+      center: new google.maps.LatLng(-37.4, 144.7),
+      zoom: 12,
+      mapTypeId: 'roadmap'
+    };
+    map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+    //Set center to user location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        map.setCenter(initialLocation);
+      });
+    }
+
+  }
+
+  /**
+  Click check button to update the map
+  */
+  function updateMap() {
+      // Clear markers
+      if(markerUrls.length > 0) {
+        markerUrls = new Array();
+        urlIndex = 0;
+      }
+      if(gMarkers.length > 0) {
+        for(i=0 ; i<gMarkers.length ; i++) {
+          gMarkers[i].setMap(null);
+        }
+        gMarkers = new Array();
+      }
+    //search suburb
+    //Suburb from user input
+    var suburb = document.getElementById("suburb").value;
+    //Type of activity from user input
+    var activity = document.getElementById("activity").value;
+    var geocoder = new google.maps.Geocoder();
+
+    //suburb for comparing with user input
+    var suburbStr = suburb.toString().toUpperCase();
+    //type of activity for comparing with user input
+    var activityStr = activity.toString().toUpperCase();
+    //Marker initialLocation
+    var url = "http://maps.google.com/mapfiles/ms/micons/";
+    //Check whether there is a activity user input
+    var flag = 0;
+    //Create table from database
+    var tableHTML = '<table border=1 class="fixed_header"><thead><tr><th>Name</th><th>Address</th><th>Type</th></tr></thead><tbody>';
+    //External user selected activity
+    var activityList = new Array();
+    if(activityStr.match("Swimming".toUpperCase()) != null) {
+      activityList.push("SWIM");
+    }else if(activityStr.match("Walking/hiking".toUpperCase()) != null) {
+      activityList.push("PARK");
+      activityList.push("OPEN");
+      activityList.push("RESERVE");
+    }else if(activityStr.match("Cycling".toUpperCase()) != null) {
+      activityList.push("CYCL");
+    }else if(activityStr.match("Park run".toUpperCase()) != null) {
+      activityList.push("PARK");
+      activityList.push("OPEN");
+      activityList.push("RESERVE");
+    }else if(activityStr.match("Martial art".toUpperCase()) != null) {
+      activityList.push("MARTIAL");
+      activityList.push("JUDO");
+      activityList.push("KARATE");
+      activityList.push("TEAKWONDO");
+    }else if(activityStr.match("Football".toUpperCase()) != null) {
+      activityList.push("FOOTBALL");
+      activityList.push("RUGBY");
+    }else if(activityStr.match("Soccer".toUpperCase()) != null) {
+      activityList.push("SOCCER");
+    }else if(activityStr.match("Volleyball".toUpperCase()) != null) {
+      activityList.push("VOLLEYBALL");
+    }else if(activityStr.match("Tennis".toUpperCase()) != null) {
+      activityList.push("TENNIS");
+    }else if(activityStr.match("Netball".toUpperCase()) != null) {
+      activityList.push("NETBALL");
+    }else if(activityStr.match("Basketball".toUpperCase()) != null) {
+      activityList.push("BASKETBALL");
+    }else if(activityStr.match("Cricket".toUpperCase()) != null) {
+      activityList.push("CRICKET");
+    }else if(activityStr.match("Fitness".toUpperCase()) != null) {
+      activityList.push("FITNESS");
+    }else if(activityStr.match("Gymnastics".toUpperCase()) != null) {
+      activityList.push("GYMNAST");
+    }else if(activityStr.match("Athletics".toUpperCase()) != null) {
+      activityList.push("ATHLET");
+    }else if(activityStr.match("Dancing".toUpperCase()) != null) {
+      activityList.push("DANC");
+    }else if(activityStr.match("All activity".toUpperCase()) != null) {
+      activityList.push("");
+    }
+    if (suburb != null && suburb != "") {
+      if (activity != null && activity!= "") {
+        {%for mark in club %}
+          //Name from the table club
+          var name= '{{mark.name}}'.toString();
+          //Address from the table club
+          var address = '{{mark.address}}'.toString();
+          //Postcode from the table club
+          var postcode = '{{mark.postcode}}'.toString().toUpperCase();
+          //Suburb from the table club
+          var markSuburb = '{{mark.suburb}}'.toString().toUpperCase();
+          //Type of activity from the table club
+          var category = '{{mark.type}}'.toString().toUpperCase();
+          //Set title equals to place_id in order to avoid duplicate
+          var title = '{{mark.place_id}}'.toString().toUpperCase();
+          //Marker initialLocation
+          var url = "http://maps.google.com/mapfiles/ms/micons/";
+          var url_address = "https://www.google.com/maps/dir/?api=1&" +
+            "origin=Current+Location&" + "destination=" + "{{mark.latitude}}"
+            + "," + "{{mark.longitude}}";
+
+        if (postcode === suburb || markSuburb.match(suburbStr) != null) {
+            var point = new google.maps.LatLng({{mark.latitude}}, {{mark.longitude}});
+            //Set marker color
+            if(category.match('SWIM') != null) {
+              url +=  "blue-dot.png";
+            }else if(category.match('FIT') != null) {
+              url +=  "purple-dot.png";
+            }else if(category.match('GYM') != null) {
+              url +=  "purple-dot.png";
+            }else if(category.match('TRAIN') != null) {
+              url +=  "purple-dot.png";
+            }else if(category.match('PARK') != null) {
+              url += "green-dot.png";
+            }else if(category.match('OPEN') != null) {
+              url += "green-dot.png";
+            }else if(category.match('RESERVE') != null) {
+              url += "green-dot.png";
+            }else if(category.match('MARTIAL') != null) {
+              url += "orange-dot.png";
+            }else if(category.match('FOOTBALL') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('SOCCER') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('TENNIS') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('NETBALL') != null) {
+              url += "pink-dot.png";
+            }else if(category.match('VOLLEYBALL') != null) {
+              url += "pink-dot.png";
+            }else if(category.match('BASKETBALL') != null) {
+              url += "pink-dot.png";
+            }else if(category.match('CRICKET') != null) {
+              url += "pink-dot.png";
+            }else if(category.match('GYMNAST') != null) {
+              url += "yellow-dot.png";
+            }else if(category.match('ATHLET') != null) {
+              url += "yellow-dot.png";
+            }else if(category.match('DANC') != null) {
+              url += "yellow-dot.png";
+            }else {
+              url += "red-dot.png";
+            }
+
+            var marker = new google.maps.Marker({
+              position: point,
+              title: title,
+              animation: google.maps.Animation.DROP,
+              icon: {
+                url: url
+              }
+            });
+            marker['infowindow'] = new google.maps.InfoWindow({
+              content: "<h6>{{mark.name}}</h6> {{ mark.address }} <br>Activity type: {{ mark.type }} ",
+            });
+            var match = 0;
+            for(i=0 ; i<activityList.length ; i++){
+              if(category.match(activityList[i]) != null && match === 0) {
+                marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
+                marker.setMap(map);
+                //Add entry to table
+                tableHTML += "<tr><td align=center>"+name+"</td>";
+                tableHTML += "<td><a href=\""+url_address+"\">"+address+"</a></td>";
+                tableHTML += "<td>"+category+"</td></tr>";
+                flag = 1;
+                match = 1;
+              }
+            }
+            gMarkers.push(marker);
+            markerUrls.push(url_address);
+            google.maps.event.addListener(marker, 'click', (function(marker, urlIndex) {
+                    return function() {
+                      window.open(markerUrls[urlIndex]);
+                    }
+                  })(marker, urlIndex));
+            google.maps.event.addListener(marker, 'mouseover', function() {
+              // this['infowindow'].open(map, this);
+              this['infowindow'].open(map, this);
+            });
+            google.maps.event.addListener(marker, 'mouseout', function() {
+              // this['infowindow'].close(map, this);
+              this['infowindow'].close(map, this);
+            });
+            urlIndex = urlIndex + 1;
+          }
+        {% endfor %}
+        // End a table
+        tableHTML += "</tr></table>";
+        document.getElementById("tableDiv").innerHTML = tableHTML;
+          if(flag == 0) {
+              window.alert('We can not find ' + activity.toLowerCase() + ' in your suburb.');
+
+          }
+          geocoder.geocode({'address': suburb, componentRestrictions: { country: 'AU'}},
+            function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                map.setZoom(14);
+              }else {
+                window.alert('Geocode was not successful for the following reason: ' + status);
+              }
+            });
+
+      }else {
+        /**
+        * User input postcode without activity
+        */
+        {%for mark in club %}
+          //Name from the table club
+          var name= '{{mark.name}}'.toString();
+          //Address from the table club
+          var address = '{{mark.address}}'.toString();
+          //Postcode from the table club
+          var postcode = '{{mark.postcode}}'.toString().toUpperCase();
+          //Suburb from the table club
+          var markSuburb = '{{mark.suburb}}'.toString().toUpperCase();
+          //Type of activity from the table club
+          var category = '{{mark.type}}'.toString().toUpperCase();
+          //Set title equals to place_id in order to avoid duplicate
+          var title = '{{mark.place_id}}'.toString().toUpperCase();
+          //Marker initialLocation
+          var url = "http://maps.google.com/mapfiles/ms/micons/";
+          var url_address = "https://www.google.com/maps/dir/?api=1&" +
+            "origin=Current+Location&" + "destination=" + "{{mark.latitude}}"
+            + "," + "{{mark.longitude}}";
+
+        if (postcode === suburb || markSuburb.match(suburbStr) != null) {
+            var point = new google.maps.LatLng({{mark.latitude}}, {{mark.longitude}});
+            //Set marker color
+            if(category.match('SWIM') != null) {
+              url +=  "blue-dot.png";
+            }else if(category.match('FIT') != null) {
+              url +=  "purple-dot.png";
+            }else if(category.match('GYM') != null) {
+              url +=  "purple-dot.png";
+            }else if(category.match('TRAIN') != null) {
+              url +=  "purple-dot.png";
+            }else if(category.match('DISABILITY') != null) {
+              url += "pink-dot.png";
+            }else if(category.match('PARK') != null) {
+              url += "green-dot.png";
+            }else if(category.match('MARTIAL') != null) {
+              url += "orange-dot.png";
+            }else if(category.match('FOOTBALL') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('SOCCER') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('TENNIS') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('NETBALL') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('SPORT') != null) {
+              url += "ltblue-dot.png";
+            }else if(category.match('ATHLET') != null) {
+              url += "yellow-dot.png";
+            }else {
+              url += "red-dot.png";
+            }
+
+            var marker = new google.maps.Marker({
+              position: point,
+              map: map,
+              title: title,
+              animation: google.maps.Animation.DROP,
+              icon: {
+                url: url
+              }
+            });
+            marker['infowindow'] = new google.maps.InfoWindow({
+              content: "<h6>{{mark.name}}</h6> <br> {{ mark.address }} <br> Activity type: {{ mark.type }}",
+            });
+
+            //Add entry to table
+            tableHTML += "<tr><td>"+name+"</td>";
+            tableHTML += "<td><a href=\""+url_address+"\" target=\"_blank\">"+address+"</a></td>";
+            tableHTML += "<td>"+category+"</td></tr>";
+            //Store maker in gMarkers
+            gMarkers.push(marker);
+            markerUrls.push(url_address);
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                      window.open(markerUrls[i]);
+                    }
+                    })(marker, i));
+            google.maps.event.addListener(marker, 'mouseover', function() {
+              // this['infowindow'].open(map, this);
+              this['infowindow'].open(map, this);
+            });
+            google.maps.event.addListener(marker, 'mouseout', function() {
+              // this['infowindow'].close(map, this);
+              this['infowindow'].close(map, this);
+            });
+            //record url record in markerUrls
+            i = i + 1;
+          }
+        {% endfor %}
+        // End a table
+        tableHTML += "</tr></tbody></table>";
+          geocoder.geocode({'address': suburb, componentRestrictions: { country: 'AU'}},
+            function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                map.setZoom(14);
+              }else {
+                window.alert('Geocode was not successful for the following reason: ' + status);
+              }
+            });
+          }
+    }else {
+      window.alert('Please enter your suburb name or postcode!');
+    }
+
+  }
+</script>
+{% endblock %}

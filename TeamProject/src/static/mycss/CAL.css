@@ -1,0 +1,72 @@
+.examples {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the examples */
+
+/* Change background color of buttons on hover */
+.examples h3:hover {
+  color: #f7b864;
+}
+
+.examples h3{
+  text-decoration:underline;
+}
+
+/* Style the tab content */
+.ex_content {
+  display: none;
+  text-align: left;
+  /* padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none; */
+}
+
+/* Style the close button */
+.topright {
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.topright:hover {color: #f7b864;}
+
+#upAna{
+  /* float: left; */
+  text-align: center;
+}
+
+#upAna .chart{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  line-height: 300px;
+}
+
+#upAna canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#printLevel{
+  font-family: 'Kanit', sans-serif;
+}
+
+.bene_risk ul{
+  font-family: 'Anton', sans-serif;
+  font-size: 25px;
+}
+.bene_risk li{
+  font-family: 'Kanit', sans-serif;
+}
+
+.risk_de_rate{
+  font-family: 'Kanit', sans-serif;
+  color: green;
+
+}

@@ -1,0 +1,293 @@
+{% extends "VICHealth_app/base.html"%}
+{% load staticfiles%}
+ {%block body_block%}
+ <div class="breadcrumb-area pt-240 pb-125" style="background-image:url(../../static/assets/img/bg/men.jpeg);" data-overlay="5">
+    <div class="container">
+        <div class="breadcrumb-text text-center z-index">
+            <h2>Check Activity Level</h2>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="container">
+    <form id="form1">
+      <h2>Step 1</h2>
+      <h5>Please input your kid's gender, age, height, weight, and how many PE class per week below.</h5>
+      <br>
+      <div class="form-row">
+
+        <div class="form-group col-3" >
+          <h6>Gender</h6>
+          <select class="form-control" id="gender">
+            <option value="0">male</option>
+            <option value="1">female</option>
+          </select>
+        </div>
+        <div class="form-group col-3">
+          <h6>Age</h6>
+          <select class="form-control" id="age">
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+          </select>
+        </div>
+        <div class="form-group col-2">
+          <h6>Height <b>(in cm)</b></h6>
+          <input type="text" class="form-control" id= "height" name="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}">
+          <span id="height-feedback"></span>
+        </div>
+        <div class="form-group col-2">
+          <h6>weight <b>(in kg)</b></h6>
+          <input type="text" class="form-control" id= "weight" name="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}">
+          <span id="weight-feedback"></span>
+        </div>
+        <div class="form-group col-2">
+          <h6>Number of PE class</h6>
+          <select class="form-control" id="PEClass">
+            <option value="0">0</option>
+            <option value="250">1</option>
+            <option value="500">2</option>
+            <option value="750">3</option>
+            <option value="1000">4</option>
+            <option value="1250">5</option>
+            <option value="1500">6</option>
+          </select>
+        </div>
+      </div>
+      <br>
+
+            <div id="ac_list">
+                <h2>Step 2</h2>
+                <h5>Please tell us what exercise and how much time your child participated in this week.</h5>
+                <br>
+                <div class="row">
+                  <div class="col-3">
+                    <h6>Actvity</h6>
+                  </div>
+                  <div class="col-5">
+                    <h6>Type of Actvity</h6>
+                  </div>
+                  <div class="col-2">
+                    <h6>Duration (<b>In min</b>) </h6>
+                  </div>
+                  <div class="col-2">
+
+                  </div>
+
+                </div>
+                <div class="form-row" id="ac_row_1">
+                    <div class="from-group col-3">
+                        <select class="form-control ac_selections" id="select_ac_1" onchange="provide_Detail(this)">
+                            <option>Please Choose Activity</option>
+                            <option>Archery</option>
+                            <option>Basketball</option>
+                            <option>Cricket</option>
+                            <option>Cycling</option>
+                            <option>Dancing</option>
+                            <option>Fishing</option>
+                            <option>Football</option>
+                            <option>Gymnastics</option>
+                            <option>Judo</option>
+                            <option>Karate</option>
+                            <option>Netball</option>
+                            <option>Running</option>
+                            <option>Skateborading</option>
+                            <option value="0">Swimming</option>
+                            <option>Soccer</option>
+                            <option>Taekwondo</option>
+                            <option>Tennis</option>
+                            <option>Track and field</option>
+                            <option>Volleyball</option>
+                            <option>Yoga</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-5">
+                        <select class="form-control detail_selections" id="select_ac_detail_1">
+                            <option value="0">Give us more activity detail please</option>
+                        </select>
+                    </div>
+                    <div class="from-group col-2">
+                        <input type="text" id="ac_time_1" placeholder="Minutes" class="form-control ac_time" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}">
+                        <span id="time-feedback_1"></span>
+                    </div>
+                    <div class="from-group col-2">
+                        <button type="button" class="btn btn-primary add_ac" style="width:80px"><b> +add </b></button>
+                        <button type="button" class="btn btn-danger del_ac" style="width:80px"><b>×delete</b></button>
+                    </div>
+                </div>
+            </div>
+      <br>
+      <h2 id="toHere">Step 3</h2>
+      <h6>Click Get Button, We will provide you suggested weekly and daily calories intake, weekly calorie burn, and activity level.</h6>
+      <br>
+      <a href="#toHere">
+        <button id="bmrBtn" class="btn btn-success" type="button">Get</button>
+      </a>
+      <br>
+      <br >
+      <h6 style="color:grey">Ps: We will not record any personal information of the child.</h6>
+    </form>
+  </div>
+  <div  class="funfact-area pt-120 pb-90" style="background-image:url(../../static/assets/img/bg/2.jpeg);background-size:cover;margin-top: 15px;" data-overlay="5.5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="project-count text-center mb-30">
+                    <h2 class="counter"><span id="bmrRes">0</span></h2>
+                    <span>Suggested Weekly Calories Intake</span>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                  <div class="project-count text-center mb-30">
+                      <h2 class="counter"><span id="d_bmrRes">0</span></h2>
+                      <span>Suggested Daily Calories Intake</span>
+                  </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                  <div class="project-count text-center mb-30">
+                        <h2 class="counter"><span id="ac_cal">0</span></h2>
+                        <span>Weekly Calorie Burn</span>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12"style="text-align: center!important;" >
+            <div class="project-count text-center mb-30">
+                <h2 class="counter"><span id="ac_level">Activity Level</span></h2>
+                <span>Activity Level</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="container" style="text-align:center">
+    <div>
+      <h2>Click buttons below to get detail of each level.</h2>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-3 examples" onclick="op_ex(event, 'Sedentary')">
+        <h3>Sedentary</h3>
+      </div>
+      <div class="col-3 examples" onclick="op_ex(event, 'Lightly')">
+        <h3>Light</h3>
+      </div>
+      <div class="col-3 examples" onclick="op_ex(event, 'Moderately')">
+        <h3>Moderate</h3>
+      </div>
+      <div class="col-3 examples" onclick="op_ex(event, 'Very')">
+        <h3>Very Active</h3>
+      </div>
+      </div>
+      <div class="ex_content" id="Sedentary">
+        <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+        <br>
+        <h3>These can be counted as sedentary behaviours:</h3>
+        <ol>
+          <li>• Spend more than two hours sitting still on watching TV, smartphones, and reading;</li>
+          <li>• Sit on the chair with slight movement during class;</li>
+          <li>• Playing musical instruments;</li>
+          <li>• Not many exercises in the week</li>
+        </ol>
+        <br>
+        <h3>How to improve: </h3>
+        <ol>
+          <li>• Your kid does a little exercise in this week. We really recommend your kid to do 4-6 exercises per week.</li>
+        </ol>
+        </div>
+      <div class="ex_content" id="Lightly">
+        <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+        <br>
+        <h3>These can be counted as light intensity activities:</h3>
+        <ol>
+          <li>• Walking with a pace lower than 3km per hour, and duration is less than one hour;</li>
+          <li>• Doing household such as wiping tables and putting tableware</li>
+          <li>• Having one or more PE during school time</li>
+        </ol>
+        <h3>How to improve:</h3>
+        <ol>
+          <li>• Your kid has done some activities this week. However, it is not enough. We really recommend your kid tries more physical activities 1-3 times.</li>
+        </ol>
+      </div>
+      <div class="ex_content" id="Moderately">
+        <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+        <br>
+        <h3>These can be counted as moderate intensity activities:</h3>
+        <ol>
+          <li>• Walking with a pace around 4km per hour for 30 to 60 minutes;</li>
+          <li>• Mowing lawns for 30 minutes;</li>
+          <li>• Playing tennis with peers for 30 to 60 minutes, or more;</li>
+          <li>• Having one or two PE during school time, highly active</li>
+        </ol>
+        <h3>How to improve:</h3>
+        <ol>
+          <li>• Your kid has already done activities, please keep it. You may also check some suggestions about healthy diet we provide.</li>
+        </ol>
+      </div>
+      <div class="ex_content" id="Very">
+        <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+        <br>
+        <h3>If Your Kid In this Level, which means:</h3>
+        <br>
+        <ol>
+          <li>
+             Your kid have already done sufficient activity. You just need to keep your child healthy.
+          </li>
+        </ol>
+        <br>
+        <h3>These can be counted as vigorous intensity activities:</h3>
+        <br>
+        <ol>
+          <li>• Jogging with a pace 6km per hour for 30 minutes;</li>
+          <li>• Swimming two laps in 10 minutes;</li>
+          <li>• Carrying heavy loads and walking for 30 minutes;</li>
+          <li>• Organized sports training, such as netball, football or soccer, lasting for 45 minutes</li>
+        </ol>
+        <h3>How to improve:</h3>
+        <ol>
+          <li>• Your kid has already done sufficient activities this week. You just need to keep your child healthy.</li>
+          <li>• You may pay attention to exercise injury. </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6" style="text-align:center;">
+        <h6> Click the button below to get more information about a healthy diet</h6>
+        <br>
+        <a href="{%url 'VICHealth_app:diet'%}">
+          <div style="background-image:url(../../static/assets/img/banner/2.jpeg);background-size: 150%;padding-top:15%" class="btn-toDiet circular"><b>Healthy diet</b></div>
+        </a>
+      </div>
+      <div class="col-md-6 col-sm-6" style="text-align:center;">
+        <h6>Click the button below to get more details about different activities</h6>
+        <br>
+        <a href="{%url 'VICHealth_app:health_tips'%}">
+          <div style="background-image:url(../../static/assets/img/banner/3.jpeg);background-size: 150%;padding-top:15%" class="btn-toDiet circular"><b>Suggestion</b></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+
+{% endblock %}

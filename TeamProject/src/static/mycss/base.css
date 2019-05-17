@@ -1,0 +1,33 @@
+.card-img-top{
+        height: 200px;
+      }
+
+      .card-body {
+        text-align: center;
+      }
+      .nav-link{
+        color: white;
+        display: inline-block;
+        font-weight: bold;
+        padding: 33px 23px 35px;
+        text-transform: uppercase;
+      }
+
+      .navbar-brand{
+        font-size: 30px;
+        color: #686868;
+      }
+      #navbarSupportedContent{
+        margin-left: 10%;
+      }
+
+      .navbar-nav .nav-link:hover{
+        color: #f8b864 !important;
+      }
+      .btn{
+        height: 37px;
+      }
+      .navbar-light .navbar-nav .nav-link{
+        color: #212529;
+        font-size: 15px;
+      }
