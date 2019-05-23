@@ -34,7 +34,7 @@
                                       <option>Swimming</option>
                                       <option>Walking/hiking</option>
                                       <option>Park run</option>
-                                      <option>Cycling</option>
+                                      <option>Cycling Club</option>
                                       <option>Martial arts</option>
                                       <option>Football</option>
                                       <option>Soccer</option>
@@ -60,9 +60,11 @@
       </section>
           </div>
           <!--Google map feature -->
-          <div id="googleMap" style="width:100%;height:600px;margin-bottom:5% auto"></div>
+          <div id="googleMap" style="width:100%;height:600px;margin-bottom:5% auto;background:grey;"></div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+          Tips: This table will show activities in your suburb. By clicking the address in the table, it will take you to Google Map.
+          <br>
           <div id="tableDiv" style="height:100%">
             <table border=1 class="fixed_header">
               <thead>
@@ -299,7 +301,7 @@
         tableHTML += "</tr></table>";
         document.getElementById("tableDiv").innerHTML = tableHTML;
           if(flag == 0) {
-              window.alert('We can not find ' + activity.toLowerCase() + ' in your suburb.');
+              window.alert('We can not find this activity(' + activity.toLowerCase() + ') in your suburb.');
 
           }
           geocoder.geocode({'address': suburb, componentRestrictions: { country: 'AU'}},
