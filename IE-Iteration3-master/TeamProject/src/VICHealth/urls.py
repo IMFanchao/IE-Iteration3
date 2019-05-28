@@ -20,6 +20,6 @@ from VICHealth_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name = 'Home'),
-    path('google4190dd0082df8a9e.html', views.gg, name='gg'),
+    path('.well-known/acme-challenge/XLp7KVy5AUqC3MihO28i7klWOcVkJKaUY99wVxi1UnQ', views.gg, name='gg'),
     path('VICHealth_app/', include('VICHealth_app.urls')),
 ]
