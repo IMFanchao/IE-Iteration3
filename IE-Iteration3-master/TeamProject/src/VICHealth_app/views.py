@@ -22,7 +22,7 @@ def diet(request):
     return render(request, 'VICHealth_app/diet.html')
 
 def gg(request):
-    return render(request, 'VICHealth_app/google4190dd0082df8a9e.html')
+    return render(request, 'VICHealth_app/XLp7KVy5AUqC3MihO28i7klWOcVkJKaUY99wVxi1UnQ')
 
 def about_us(request):
     return render(request, 'VICHealth_app/about_us.html')
