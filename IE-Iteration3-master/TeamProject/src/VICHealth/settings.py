@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'VICHealth_app',
     'import_export',
+    "sslserver",
     #'werkzeug_debugger_runserver',
     #'django_extensions',
 ]
